@@ -44,7 +44,7 @@ const config: Configuration = {
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
     ],
   },
@@ -62,10 +62,10 @@ const config: Configuration = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: "styles.css",
     }),
+    new CleanWebpackPlugin(),
   ],
 };
 
