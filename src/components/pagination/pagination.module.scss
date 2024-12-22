@@ -1,0 +1,61 @@
+@use "@styles/variables" as vars;
+
+.pagination {
+  position: absolute;
+  width: 120px;
+  height: 88px;
+  bottom: 25%;
+  left: 10%;
+  transform: translate(-50%, 50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: vars.$font-family;
+  font-size: clamp(vars.$font-size-medium, 2vw, vars.$font-size-large);
+  color: vars.$primary-color;
+
+  .pagination-index {
+    font-family: vars.$font-family;
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    text-align: left;
+    color: vars.$primary-color;
+    margin: 5px;
+  }
+
+  .pagination-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .pagination-button {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      color: vars.$primary-color;
+      align-items: center;
+      border: 1px solid vars.$border-color;
+      border-radius: vars.$border-radius;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #fff;
+      }
+
+      &::before {
+        content: attr(data-symbol);
+        font-size: vars.$font-size-medium;
+        line-height: 1;
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        background-color: transparent;
+      }
+    }
+  }
+}

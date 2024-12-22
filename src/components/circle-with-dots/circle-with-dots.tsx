@@ -1,8 +1,15 @@
 import React from "react";
-import "@styles/styles.scss";
+import * as styles from "./circle-with-dots.module.scss";
 
-const CircleWithDots: React.FC = () => {
-  const numDots = 6;
+interface CircleWithDotsProps {
+  numDots: number;
+  onDotClick: (index: number) => void;
+}
+
+const CircleWithDots: React.FC<CircleWithDotsProps> = ({
+  numDots,
+  onDotClick,
+}) => {
   const radius = 265;
 
   const getDotPosition = (index: number) => {
@@ -13,19 +20,19 @@ const CircleWithDots: React.FC = () => {
   };
 
   return (
-    <div className="circle-container">
-      <div className="circle"></div>
+    <div className={styles["circle-container"]}>
+      <div className={styles.circle}></div>
       {Array.from({ length: numDots }).map((_, index) => {
         const { x, y } = getDotPosition(index);
         return (
           <div
             key={index}
-            className="dot"
+            className={styles.dot}
             style={{
               left: `${x}px`,
               top: `${y}px`,
             }}
-            onClick={() => console.log(`Clicked on dot ${index + 1}`)}
+            onClick={() => onDotClick(index + 1)}
           ></div>
         );
       })}

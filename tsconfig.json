@@ -18,5 +18,6 @@
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node"
   },
+  "include": ["src/**/*", "global.d.ts"],
   "exclude": ["node_modules", "dist", "coverage", "webpack.*.ts"]
 }
