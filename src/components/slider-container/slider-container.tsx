@@ -4,15 +4,18 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 
-import mockData from "@/mock/data";
-
 import * as styles from "./slider-container.module.scss";
+import { MockData } from "@/types/event-types";
 
 interface SliderContainerProps {
   activeDot: number;
+  mockData: MockData;
 }
 
-const SliderContainer: React.FC<SliderContainerProps> = ({ activeDot }) => {
+const SliderContainer: React.FC<SliderContainerProps> = ({
+  activeDot,
+  mockData,
+}) => {
   const swiperRef = useRef<SwiperClass | null>(null);
   const [isPrevDisabled, setIsPrevDisabled] = useState(true);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
