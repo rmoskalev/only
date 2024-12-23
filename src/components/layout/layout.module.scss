@@ -76,3 +76,27 @@
   line-height: 1.2;
   color: vars.$primary-color;
 }
+
+.years-container {
+  position: absolute;
+  width: 973px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.first-year,
+.last-year {
+  font-size: 200px;
+  font-family: vars.$font-family;
+  line-height: 0.85;
+  font-weight: 700;
+}
+
+.first-year {
+  color: #5d5fef;
+}
+
+.last-year {
+  color: #ef5da8;
+}

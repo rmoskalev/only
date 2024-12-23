@@ -1,6 +1,8 @@
 import React from "react";
-import * as styles from "./pagination.module.scss";
+
 import PaginationButton from "./pagination-button";
+
+import * as styles from "./pagination.module.scss";
 
 interface PaginationProps {
   activeDot: number;

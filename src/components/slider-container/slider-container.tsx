@@ -3,9 +3,11 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import { gsap } from "gsap";
+
+import { MockData } from "@/types/event-types";
 
 import * as styles from "./slider-container.module.scss";
-import { MockData } from "@/types/event-types";
 
 interface SliderContainerProps {
   activeDot: number;
@@ -19,10 +21,24 @@ const SliderContainer: React.FC<SliderContainerProps> = ({
   const swiperRef = useRef<SwiperClass | null>(null);
   const [isPrevDisabled, setIsPrevDisabled] = useState(true);
   const [isNextDisabled, setIsNextDisabled] = useState(false);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (swiperRef.current) {
       swiperRef.current.slideTo(0);
+    }
+
+    if (containerRef.current) {
+      gsap.to(containerRef.current, {
+        opacity: 0,
+        duration: 0.75,
+        onComplete: () => {
+          gsap.to(containerRef.current, {
+            opacity: 1,
+            duration: 0.75,
+          });
+        },
+      });
     }
   }, [activeDot]);
 
@@ -34,7 +50,7 @@ const SliderContainer: React.FC<SliderContainerProps> = ({
   };
 
   return (
-    <div className={styles["slider-container"]}>
+    <div className={styles["slider-container"]} ref={containerRef}>
       <Swiper
         modules={[Navigation]}
         spaceBetween={80}

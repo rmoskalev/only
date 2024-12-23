@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
-import * as styles from "./circle-with-dots.module.scss";
+
 import { MockData } from "@/types/event-types";
+
+import * as styles from "./circle-with-dots.module.scss";
 
 interface CircleWithDotsProps {
   numDots: number;
@@ -30,7 +32,6 @@ const CircleWithDots: React.FC<CircleWithDotsProps> = ({
 
   useEffect(() => {
     if (circleRef.current) {
-      setShowCategory(false);
       const angle = (activeDot / numDots) * 360;
       gsap.to(circleRef.current, {
         rotation: -angle,
@@ -46,6 +47,11 @@ const CircleWithDots: React.FC<CircleWithDotsProps> = ({
   const getCategoryByIndex = (index: number) => {
     const categoryIndex = Math.floor(index / (numDots / mockData.length));
     return mockData[categoryIndex].category;
+  };
+
+  const handleDotClick = (index: number) => {
+    setShowCategory(false);
+    onDotClick(index);
   };
 
   return (
@@ -68,7 +74,7 @@ const CircleWithDots: React.FC<CircleWithDotsProps> = ({
                 top: `${y}px`,
                 transform: `translate(-50%, -50%) rotate(${angle}rad)`,
               }}
-              onClick={() => onDotClick(index + 1)}
+              onClick={() => handleDotClick(index + 1)}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >

@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import CircleWithDots from "../circle-with-dots/circle-with-dots";
 import Pagination from "../pagination/pagination";
 import SliderContainer from "../slider-container/slider-container";
+import YearsContainer from "../years-container/years-container";
 import mockData from "@/mock/data";
 
 import * as styles from "./layout.module.scss";
 
 const Layout: React.FC = () => {
   const numDots = 6;
-  const [activeDot, setActiveDot] = useState(6);
+  const [activeDot, setActiveDot] = useState(1);
 
   const handlePrev = () => {
     if (activeDot > 1) setActiveDot((prev) => prev - 1);
@@ -22,6 +23,12 @@ const Layout: React.FC = () => {
   const handleDotClick = (index: number) => {
     setActiveDot(index);
   };
+
+  const activeCategory = mockData[activeDot - 1];
+  const eventYears = activeCategory.events.map((event) => event.year);
+
+  const firstYear = eventYears[0];
+  const lastYear = eventYears[eventYears.length - 1];
 
   return (
     <div className={styles.container}>
@@ -46,6 +53,7 @@ const Layout: React.FC = () => {
         onNext={handleNext}
       />
       <SliderContainer activeDot={activeDot} mockData={mockData} />
+      <YearsContainer firstYear={firstYear} lastYear={lastYear} />
     </div>
   );
 };
