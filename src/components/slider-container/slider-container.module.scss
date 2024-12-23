@@ -1,0 +1,76 @@
+@use "@styles/variables" as vars;
+
+.slider-container {
+  position: absolute;
+  max-width: 100%;
+  bottom: 5%;
+}
+
+:global(.swiper) {
+  width: 80%;
+}
+
+:global(.swiper-wrapper) {
+  margin: 0 30px;
+}
+
+.swiper-slide {
+  width: 320px !important;
+  height: 135px !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.year {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: left;
+  margin-bottom: 10px;
+  color: #3877ee;
+}
+
+.event-description {
+  font-family: "PT Sans", sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: left;
+  color: #42567a;
+}
+
+.custom-prev,
+.custom-next {
+  position: absolute;
+  bottom: 40%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  color: vars.$secondary-color;
+  align-items: center;
+  border: 1px solid vars.$border-color;
+  border-radius: vars.$border-radius;
+  cursor: pointer;
+}
+
+.custom-prev {
+  left: 80px;
+}
+
+.custom-next {
+  right: 80px;
+}
+
+.custom-prev:hover,
+.custom-next:hover {
+  color: #2b5c89;
+}
+
+.custom-prev:disabled,
+.custom-next:disabled {
+  display: none;
+}

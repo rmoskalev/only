@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import * as styles from "./container.module.scss";
+import * as styles from "./layout.module.scss";
 import CircleWithDots from "../circle-with-dots/circle-with-dots";
 import Pagination from "../pagination/pagination";
+import SliderContainer from "../slider-container/slider-container";
 
-const Container: React.FC = () => {
+const Layout: React.FC = () => {
   const numDots = 6;
   const [activeDot, setActiveDot] = useState(1);
 
@@ -17,7 +18,6 @@ const Container: React.FC = () => {
 
   const handleDotClick = (index: number) => {
     setActiveDot(index);
-    console.log(`Clicked on dot ${index}`);
   };
 
   return (
@@ -37,8 +37,9 @@ const Container: React.FC = () => {
         onPrev={handlePrev}
         onNext={handleNext}
       />
+      <SliderContainer activeDot={activeDot} />
     </div>
   );
 };
 
-export default Container;
+export default Layout;
