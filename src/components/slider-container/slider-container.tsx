@@ -3,6 +3,7 @@ import { Navigation } from "swiper/modules";
 import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { gsap } from "gsap";
 
 import { MockData } from "@/types/event-types";
@@ -49,15 +50,39 @@ const SliderContainer: React.FC<SliderContainerProps> = ({
     }
   };
 
+  const getCategoryByIndex = (index: number) => {
+    const categoryIndex = Math.floor(index / (6 / mockData.length));
+    return mockData[categoryIndex].category;
+  };
+
+  const category = getCategoryByIndex(activeDot);
+
   return (
     <div className={styles["slider-container"]} ref={containerRef}>
+      <p className={styles["category-text"]}>{category}</p>
+      <div className={styles.separator}>
+        <hr />
+      </div>
       <Swiper
         modules={[Navigation]}
-        spaceBetween={80}
-        slidesPerView={3}
-        navigation={{
-          nextEl: ".custom-next",
-          prevEl: ".custom-prev",
+        breakpoints={{
+          0: {
+            slidesPerView: "auto",
+            spaceBetween: 25,
+            pagination: {
+              clickable: true,
+            },
+            navigation: false,
+          },
+          1000: {
+            slidesPerView: 3,
+            spaceBetween: 80,
+            pagination: false,
+            navigation: {
+              nextEl: ".custom-next",
+              prevEl: ".custom-prev",
+            },
+          },
         }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         onSlideChange={handleSlideChange}

@@ -6,6 +6,13 @@
   display: flex;
   justify-content: space-between;
   z-index: 1;
+
+  @media (max-width: 1000px) {
+    position: sticky;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 10vh;
+  }
 }
 
 .first-year,
@@ -14,6 +21,11 @@
   font-family: vars.$font-family;
   line-height: 0.85;
   font-weight: 700;
+
+  @media (max-width: 1000px) {
+    font-size: 56px;
+    line-height: 1.29;
+  }
 }
 
 .first-year {

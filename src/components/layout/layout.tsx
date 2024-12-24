@@ -1,14 +1,15 @@
 import React, { useState } from "react";
 
-import CircleWithDots from "../circle-with-dots/circle-with-dots";
-import Pagination from "../pagination/pagination";
-import SliderContainer from "../slider-container/slider-container";
-import YearsContainer from "../years-container/years-container";
 import mockData from "@/mock/data";
 
-import * as styles from "./layout.module.scss";
+import DesktopLayout from "./desktop-layout";
+import MobileLayout from "./mobile-layout";
 
-const Layout: React.FC = () => {
+interface LayoutProps {
+  isMobile: boolean;
+}
+
+const Layout: React.FC<LayoutProps> = ({ isMobile }) => {
   const numDots = 6;
   const [activeDot, setActiveDot] = useState(1);
 
@@ -30,31 +31,21 @@ const Layout: React.FC = () => {
   const firstYear = eventYears[0];
   const lastYear = eventYears[eventYears.length - 1];
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.crosshair}>
-        <div className={styles["vertical-line"]}></div>
-        <div className={styles["horizontal-line"]}></div>
-      </div>
-      <CircleWithDots
-        numDots={numDots}
-        onDotClick={handleDotClick}
-        activeDot={activeDot}
-        mockData={mockData}
-      />
-      <div className={styles["gradient-line"]}></div>
-      <div className={styles.text}>
-        <h1>Исторические даты</h1>
-      </div>
-      <Pagination
-        activeDot={activeDot}
-        numDots={numDots}
-        onPrev={handlePrev}
-        onNext={handleNext}
-      />
-      <SliderContainer activeDot={activeDot} mockData={mockData} />
-      <YearsContainer firstYear={firstYear} lastYear={lastYear} />
-    </div>
+  const sharedProps = {
+    numDots,
+    activeDot,
+    handleDotClick,
+    handlePrev,
+    handleNext,
+    mockData,
+    firstYear,
+    lastYear,
+  };
+
+  return isMobile ? (
+    <MobileLayout {...sharedProps} />
+  ) : (
+    <DesktopLayout {...sharedProps} />
   );
 };
 

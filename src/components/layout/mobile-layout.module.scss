@@ -1,0 +1,19 @@
+@use "@styles/variables" as vars;
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.text {
+  max-width: 123px;
+  display: flex;
+  text-align: left;
+  font-size: vars.$font-size-small;
+  color: vars.$primary-color;
+  padding-top: 10%;
+  padding-left: 5%;
+}

@@ -14,6 +14,15 @@
   font-size: clamp(vars.$font-size-medium, 2vw, vars.$font-size-large);
   color: vars.$primary-color;
 
+  @media (max-width: 1000px) {
+    position: sticky;
+    bottom: inherit;
+    left: 20px;
+    transform: inherit;
+    width: 60px;
+    height: 50px;
+  }
+
   .pagination-index {
     font-family: vars.$font-family;
     flex-grow: 1;
@@ -23,6 +32,10 @@
     text-align: left;
     color: vars.$primary-color;
     margin: 5px;
+
+    @media (max-width: 1000px) {
+      font-size: 14px;
+    }
   }
 
   .pagination-buttons {
@@ -41,6 +54,10 @@
       border-radius: vars.$border-radius;
       cursor: pointer;
 
+      @media (max-width: 1000px) {
+        transform: scale(0.8);
+      }
+
       &:hover {
         background-color: #fff;
       }
@@ -58,4 +75,44 @@
       }
     }
   }
+}
+
+.pagination-container {
+  @media (max-width: 1000px) {
+    position: relative;
+    display: flex;
+    width: 100vw;
+  }
+}
+
+.pagination-bullets {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  @media (min-width: 1000px) {
+    display: none;
+  }
+}
+
+.pagination-bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-bullet:hover {
+  background-color: #888;
+}
+
+.pagination-bullet.active {
+  background-color: #3877ee;
 }

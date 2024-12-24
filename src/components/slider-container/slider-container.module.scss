@@ -4,14 +4,29 @@
   position: absolute;
   max-width: 100%;
   bottom: 5%;
+
+  @media (max-width: 1000px) {
+    position: sticky;
+    width: 100%;
+    text-align: left;
+  }
 }
 
 :global(.swiper) {
   width: 80%;
+
+  @media (max-width: 1000px) {
+    position: sticky;
+    width: 100%;
+  }
 }
 
 :global(.swiper-wrapper) {
   margin: 0 30px;
+
+  @media (max-width: 1000px) {
+    margin: 0 0 0 20px;
+  }
 }
 
 .swiper-slide {
@@ -21,6 +36,10 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+
+  @media (max-width: 768px) {
+    max-width: 166px;
+  }
 }
 
 .year {
@@ -31,6 +50,10 @@
   text-align: left;
   margin-bottom: 10px;
   color: #3877ee;
+
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .event-description {
@@ -40,6 +63,10 @@
   line-height: 1.2;
   text-align: left;
   color: #42567a;
+
+  @media (max-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .custom-prev,
@@ -55,6 +82,10 @@
   border: 1px solid vars.$border-color;
   border-radius: vars.$border-radius;
   cursor: pointer;
+
+  @media (max-width: 1000px) {
+    display: none;
+  }
 }
 
 .custom-prev {
@@ -73,4 +104,33 @@
 .custom-prev:disabled,
 .custom-next:disabled {
   display: none;
+}
+
+.separator {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  margin: 5% 0 5% 0;
+
+  @media (min-width: 1000px) {
+    display: none;
+  }
+}
+
+hr {
+  width: 90%;
+  color: #c7cdd9;
+  opacity: 0.5;
+}
+
+.category-text {
+  font-size: 20px;
+  color: vars.$primary-color;
+  line-height: 1.5;
+  font-weight: 700;
+  margin: 5% 0 0 5%;
+
+  @media (min-width: 1000px) {
+    display: none;
+  }
 }
