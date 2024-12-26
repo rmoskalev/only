@@ -38,6 +38,10 @@
     align-items: center;
     border-radius: 50%;
   }
+
+  .dot-category {
+    pointer-events: none;
+  }
 }
 
 .dot.activeDot {
