@@ -1,7 +1,6 @@
 import path from "path";
 import { fileURLToPath } from "url";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import { Configuration } from "webpack";
 import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
@@ -10,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 import "webpack-dev-server";
 
-const config: Configuration = {
+const config = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {

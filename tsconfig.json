@@ -19,5 +19,5 @@
     "moduleResolution": "node"
   },
   "include": ["src/**/*", "global.d.ts"],
-  "exclude": ["node_modules", "dist", "coverage", "webpack.*.ts"]
+  "exclude": ["node_modules", "dist", "coverage", "webpack.*.js"]
 }

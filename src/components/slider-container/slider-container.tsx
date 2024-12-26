@@ -51,8 +51,7 @@ const SliderContainer: React.FC<SliderContainerProps> = ({
   };
 
   const getCategoryByIndex = (index: number) => {
-    const categoryIndex = Math.floor(index / (6 / mockData.length));
-    return mockData[categoryIndex].category;
+    return mockData[index - 1].category;
   };
 
   const category = getCategoryByIndex(activeDot);

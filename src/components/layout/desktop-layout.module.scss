@@ -67,14 +67,14 @@
   transform: translateY(-50%);
   font-size: vars.$font-size-medium;
   color: vars.$primary-color;
-}
 
-.text h1 {
-  font-family: vars.$font-family;
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 1.2;
-  color: vars.$primary-color;
+  h1 {
+    font-family: vars.$font-family;
+    font-size: 56px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: vars.$primary-color;
+  }
 }
 
 .years-container {

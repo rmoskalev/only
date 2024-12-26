@@ -24,7 +24,8 @@ const Pagination: React.FC<PaginationProps> = ({
     <div className={styles["pagination-container"]}>
       <div className={styles.pagination}>
         <span className={styles["pagination-index"]}>
-          0{activeDot}/0{numDots}
+          {String(activeDot).padStart(2, "0")}/
+          {String(numDots).padStart(2, "0")}
         </span>
         <div className={styles["pagination-buttons"]}>
           <PaginationButton

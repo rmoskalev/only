@@ -27,17 +27,17 @@
   transform: translate(-50%, -50%);
   cursor: pointer;
   transition: all 0.3s ease;
-}
 
-.dot:hover {
-  width: 56px;
-  height: 56px;
-  background-color: #f4f5f9;
-  display: flex;
-  justify-content: center;
-  border: 1px solid vars.$border-color;
-  align-items: center;
-  border-radius: 50%;
+  :hover {
+    width: 56px;
+    height: 56px;
+    background-color: #f4f5f9;
+    display: flex;
+    justify-content: center;
+    border: 1px solid vars.$border-color;
+    align-items: center;
+    border-radius: 50%;
+  }
 }
 
 .dot.activeDot {
